@@ -1,5 +1,10 @@
 console.log('Hello, front end');
-var tempType
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  console.log("DOM fully loaded and parsed");
+
+
+var tempType;
 
 document.getElementById("submit").addEventListener('click', function() {
   if (tempType === "c") {
@@ -14,7 +19,7 @@ console.log("it's working")
 
 function toFahrenheit() {
   var temp = document.getElementById("input").value
-  var fahResults = temp * (9/5) + 32
+  var fahResults = (temp * (9/5)) + 32
   document.getElementById("result").textContent = fahResults
 }
 
@@ -37,11 +42,14 @@ document.getElementsByClassName("tempSelect")[1].addEventListener('click', funct
 })
 
 document.getElementById("submit").addEventListener('click', function() {
-// if degree C selected then this:
-
-  document.getElementById("input").innerHTML = toFahrenheit();
-//else if degree F selected then this:
-  document.getElementById("input").innerHTML = toCelsius();
+  if (tempType = "c")
+    // if degree C selected then this:
+    document.getElementById("input").innerHTML = toFahrenheit();
+  else if (tempType = "f")
+    //else if degree F selected then this:
+    document.getElementById("input").innerHTML = toCelsius();
+  else
+    console.log("Wrong Option");
 });
 
 
@@ -56,3 +64,5 @@ function clearResults() {
   document.getElementById("result").textContent='';
   document.getElementById("input").value='';
 }
+
+});
